@@ -13,35 +13,96 @@ Select ONE Additional
 [ no ] Feature 5 - Animate a color change
 -->
 
-
 <!DOCTYPE html>
-<html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Unit 7 Project</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.6/processing.min.js"></script>
-    <style></style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Website</title>
+    <style>
+      
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #2ecc71;
+        --background-color: #f4f4f9;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: var(--background-color);
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        text-align: center;
+        color: var(--primary-color);
+        text-decoration: underline;
+        font-size: 3em;
+      } 
+      p {
+        text-align: center;
+        color: #333;
+        font-size: 1.2em;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+      }
+      .circle {
+        width: 100px;
+        height: 100px;
+        background-color: var(--secondary-color);
+        border-radius: 50%;
+        animation: moveAndResize 4s infinite;
+      }
+      @keyframes moveAndResize {
+        0% {
+          transform: translateX(0) scale(1);
+        }
+        25% {
+          transform: translateX(100px) scale(1.2);
+        }
+        50% {
+          transform: translateX(0) scale(1);
+        }
+        75% {
+          transform: translateX(-100px) scale(1.5);
+        }
+        100% {
+          transform: translateX(0) scale(1);
+        }
+      }
+      .animated-text {
+        color: #333;
+        animation: colorChange 3s infinite;
+      }
+
+      @keyframes colorChange {
+        0% {
+          color: #333;
+        }
+        50% {
+          color: var(--primary-color);
+        }
+        100% {
+          color: var(--secondary-color);
+        }
+      }
+  
+    </style>
   </head>
-
   <body>
-    <h1>
-      New Year, New Me
-    </h1>
-    <div class="main">
-      <canvas id="myCanvas" data-processing-sources="myP5Code.pde"> </canvas>
-      <div>
-        <h2>
-          2025 Goals
-        </h2>
-        <ol>
-          <li>Spend More Time Coding </li>
-        </ol>
-      </div>
-    </div>
-        
-  </body>
-</html>
+    <h1>Welcome to My Website</h1>
 
-<!--- Taken From Khan Academy Intro to JS: Drawing & Animation --->
+    <p class="animated-text">
+      This is an example of color change, moving, and resizing
+    </p>
+    <div class="container">
+      <div class="circle"></div>
+    </div>
+    
+
+    <p></p>
+  </body>
+
+
